@@ -8,12 +8,28 @@ const personalMovieDB = {
     genres: [],
     private: false
 };
-const a = prompt('Один з останніх переглянутих фільмів?', '');
-const b = prompt('На скільки оціните його?', '');
-const c = prompt('Один з останніх переглянутих фільмів?', '');
-const d = prompt('На скільки оціните його?', '');
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один з останніх переглянутих фільмів?', '');
+    const b = prompt('На скільки оціните його?', '');
+    if (a != null && b != null && a != '' && b != '' && a.length < 50){
+        personalMovieDB.movies[a] = b;
+        console.log('OK');
+    } else {
+        console.log('Error');
+        i--;
+    }
+}
+if (personalMovieDB.count < 10) {
+    console.log('Low');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log('Classic');
+} else if (personalMovieDB.count >= 30) {
+    console.log('Cinema lover');
+} else {
+    console.log('Error');
+}
 console.log(personalMovieDB);
+
+
 
 
